@@ -7,11 +7,24 @@ This is a web that shows you the qr code and also the map of the destiny you wan
 - Fetch weather information for a given destination.
 - View the destination map and QR code.
 
+  Look at the repository and clone it
+
 ## Installation
  Install dependencies:
    ```
    pip install -r requirements.txt
    ```
+ Create a folder called Static, there is gonna be the qr and the map
+
+ should look like this
+  smart_travel_planner/
+├── app.py
+├── models.py
+├── templates/
+│   └── index.html
+├── static/
+│   └── (Generated map and QR code files will be saved here)
+└── requirements.txt
  Run the application:
    ```
    python app.py
