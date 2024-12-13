@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planner</title>
+</head>
+<body>
+    <h1>Plan Your Trip</h1>
+    <form action="/plan_trip" method="POST">
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination">
+        <button type="submit">Get Suggestions</button>
+    </form>
+
+    {% if suggestions %}
+        <h2>Suggestions:</h2>
+        <p>{{ suggestions }}</p>
+    {% endif %}
+
+    {% if weather and weather['weather'] %}
+        <h2>Weather Information:</h2>
+        <p>{{ weather['weather'][0]['description'] }}</p>
+    {% else %}
+        <p>Weather information is not available.</p>
+    {% endif %}
+
+    {% if destination %}
+        <h2>Destination: {{ destination }}</h2>
+        <h3>Map and QR Code:</h3>
+        <div>
+            <a href="static/{{ destination }}_map.html" target="_blank">View Map</a>
+            <br>
+            <img src="static/{{ destination }}_qr.png" alt="QR Code for {{ destination }}">
+        </div>
+    {% endif %}
+</body>
+</html>
